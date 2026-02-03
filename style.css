@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 420px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+  z-index: 2;
+}
+
+input, textarea {
+  width: 90%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+/* Fake No Button */
+#noBtn {
+  position: absolute;
+  background: #444;
+}
+
+/* Flower petals */
+.petals span {
+  position: absolute;
+  top: -50px;
+  animation: fall linear infinite;
+  font-size: 24px;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* Confetti */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
