@@ -112,7 +112,7 @@ function createPetals() {
 
   setInterval(() => {
     const petal = document.createElement("img");
-    petal.src = "petal.png";
+    petal.src = "Petal.png";
     petal.className = "petal";
     petal.style.left = Math.random() * 100 + "vw";
     petal.style.animationDuration = 6 + Math.random() * 5 + "s";
