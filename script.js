@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // MUSIC (SAFE)
- // const music = document.getElementById("music");
+//  const music = document.getElementById("music");
  // if (music) music.volume = 0.5;
 
   // NO BUTTON 😈
@@ -61,4 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const yesBtn = document.getElementById("yesBtn");
   const result = document.getElementById("result");
 
-  if
+  if (yesBtn) {
+    yesBtn.addEventListener("click", () => {
+      if (result) {
+        result.classList.remove("hidden");
+        result.innerText = "YAYYYY 💖 I knew you’d say yes!";
+      }
+      if (music) music.play();
+    });
+  }
+});
