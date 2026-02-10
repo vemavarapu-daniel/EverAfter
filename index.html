@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>A Question From My Heart 💖</title>
+  <meta charset="UTF-8" />
+  <title>Valentine Proposal 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="center">
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+  <div class="card fade-in">
+    <h1>💌 Create Your Valentine Proposal</h1>
 
-<!-- Falling Flowers -->
-<div class="petals"></div>
+    <input id="fromName" placeholder="Your name (optional)" />
+    <textarea id="message" placeholder="Write your love message here..."></textarea>
 
-<!-- Confetti -->
-<canvas id="confetti"></canvas>
+    <button onclick="generateLink()">Generate Proposal Link 💖</button>
 
-<div class="container" id="app"></div>
+    <div id="linkBox" class="hidden">
+      <p>Copy & send this link 👇</p>
+      <input id="shareLink" readonly />
+    </div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
