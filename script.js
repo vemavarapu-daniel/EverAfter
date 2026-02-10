@@ -189,3 +189,31 @@ function downloadCertificate(name, reply) {
   link.href = canvas.toDataURL();
   link.click();
 }
+
+// 🌸 Falling Petals Generator
+const petalContainer = document.getElementById("petal-container");
+
+function createPetal() {
+  if (!petalContainer) return;
+
+  const petal = document.createElement("div");
+  petal.classList.add("petal");
+  petal.innerText = "🌸";
+
+  const size = Math.random() * 10 + 14;
+  petal.style.fontSize = `${size}px`;
+
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = Math.random() * 5 + 6 + "s";
+  petal.style.opacity = Math.random() * 0.5 + 0.4;
+
+  petalContainer.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 12000);
+}
+
+// create petals continuously
+setInterval(createPetal, 400);
+
