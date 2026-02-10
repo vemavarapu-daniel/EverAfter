@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // MUSIC (SAFE)
-  const music = document.getElementById("music");
-  if (music) music.volume = 0.5;
+ // const music = document.getElementById("music");
+ // if (music) music.volume = 0.5;
 
   // NO BUTTON 😈
   const noBtn = document.getElementById("noBtn");
