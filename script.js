@@ -1,15 +1,15 @@
-// -------------------------
-// LANDING PAGE LOGIC
-// -------------------------
+// ===============================
+// LANDING PAGE
+// ===============================
 function generateLink() {
-  const messageInput = document.getElementById("message");
+  const msgInput = document.getElementById("message");
   const fromInput = document.getElementById("fromName");
   const linkBox = document.getElementById("linkBox");
   const shareLink = document.getElementById("shareLink");
 
-  if (!messageInput) return;
+  if (!msgInput) return;
 
-  const msg = encodeURIComponent(messageInput.value.trim());
+  const msg = encodeURIComponent(msgInput.value.trim());
   const from = encodeURIComponent(fromInput.value.trim());
 
   if (!msg) {
@@ -17,109 +17,48 @@ function generateLink() {
     return;
   }
 
-  const basePath = window.location.href.replace("index.html", "");
-  const link = `${basePath}proposal.html?msg=${msg}&from=${from}`;
+  const base = window.location.href.replace("index.html", "");
+  const link = `${base}proposal.html?msg=${msg}&from=${from}`;
 
   linkBox.classList.remove("hidden");
   shareLink.value = link;
 }
 
-// -------------------------
-// PROPOSAL PAGE LOGIC
-// -------------------------
-const params = new URLSearchParams(window.location.search);
-const message = params.get("msg");
-const from = params.get("from");
+// ===============================
+// PROPOSAL PAGE
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-// Message rendering
-const messageEl = document.getElementById("proposalMessage");
-const fromEl = document.getElementById("fromText");
+  const params = new URLSearchParams(window.location.search);
 
-if (messageEl && message) {
-  messageEl.innerText = decodeURIComponent(message);
-}
+  const messageEl = document.getElementById("proposalMessage");
+  const fromEl = document.getElementById("fromText");
 
-if (fromEl && from) {
-  fromEl.innerText = `— ${decodeURIComponent(from)} 💌`;
-}
-
-// -------------------------
-// MUSIC (SAFE)
-// -------------------------
-const music = document.getElementById("music");
-if (music) {
-  music.volume = 0.5;
-}
-
-// -------------------------
-// NO BUTTON EVASION 😈
-// -------------------------
-const noBtn = document.getElementById("noBtn");
-if (noBtn) {
-  noBtn.addEventListener("mouseenter", () => {
-    const padding = 80;
-    const x = Math.random() * (window.innerWidth - padding);
-    const y = Math.random() * (window.innerHeight - padding);
-
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
-  });
-}
-
-// -------------------------
-// YES BUTTON 💖
-// -------------------------
-const yesBtn = document.getElementById("yesBtn");
-const result = document.getElementById("result");
-
-if (yesBtn) {
-  yesBtn.addEventListener("click", () => {
-    if (result) {
-      result.classList.remove("hidden");
-      result.innerText = "YAYYYY 💖 I knew you’d say yes!";
-    }
-
-    if (music) music.play();
-    startConfetti();
-  });
-}
-
-// -------------------------
-// CONFETTI 🎉
-// -------------------------
-function startConfetti() {
-  const canvas = document.getElementById("confetti");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const pieces = Array.from({ length: 160 }).map(() => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 6 + 4,
-    dx: Math.random() - 0.5,
-    dy: Math.random() * 3 + 2
-  }));
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    pieces.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "#e91e63";
-      ctx.fill();
-
-      p.x += p.dx;
-      p.y += p.dy;
-
-      if (p.y > canvas.height) p.y = -10;
-    });
-
-    requestAnimationFrame(animate);
+  if (messageEl && params.get("msg")) {
+    messageEl.innerText = decodeURIComponent(params.get("msg"));
   }
 
-  animate();
-}
+  if (fromEl && params.get("from")) {
+    fromEl.innerText = `— ${decodeURIComponent(params.get("from"))} 💌`;
+  }
+
+  // MUSIC (SAFE)
+  const music = document.getElementById("music");
+  if (music) music.volume = 0.5;
+
+  // NO BUTTON 😈
+  const noBtn = document.getElementById("noBtn");
+  if (noBtn) {
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 80);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+  }
+
+  // YES BUTTON 💖
+  const yesBtn = document.getElementById("yesBtn");
+  const result = document.getElementById("result");
+
+  if
