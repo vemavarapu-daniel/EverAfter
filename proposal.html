@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <!-- Falling petals -->
+  <div id="petals"></div>
+
   <canvas id="confetti"></canvas>
 
   <div class="proposal fade-in">
@@ -16,12 +19,18 @@
     <p id="proposalMessage"></p>
     <span id="fromText"></span>
 
+    <textarea id="replyText" placeholder="Write something sweet 💬"></textarea>
+
     <div class="buttons">
       <button id="yesBtn">❤️ YES</button>
       <button id="noBtn">😈 NO</button>
     </div>
 
     <h2 id="result" class="hidden"></h2>
+
+    <button id="downloadCert" class="hidden">
+      📜 Download YES Certificate
+    </button>
   </div>
 
   <audio id="music" src="music.mp3" loop></audio>
